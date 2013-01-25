@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of pam_limits.
 
+## 0.0.3:
+
+* Cookbook now handle case when configuration was not specified
+
 ## 0.0.1:
 
 * Initial release of pam_limits

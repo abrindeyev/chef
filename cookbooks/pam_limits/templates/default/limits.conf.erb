@@ -49,16 +49,33 @@
 
 # Rendered by Chef recipe pam_limits::default
 <%
-  @domains.each do |domain|
-    domain[1].each do |t|
-      t[1].each do |i|
+  if @domains
+    @domains.each do |domain|
+      domain[1].each do |t|
+        t[1].each do |i|
 %>
 <%= domain[0] %> <%= t[0] %> <%= i[0] %> <%= i[1] %>
 <%
+        end
       end
     end
-  end
+  else
 -%>
+# Can't find pam_limits cookbook configuration
+# specify your configuration in recipe like that:
+# node.set['pam_limits']['domains']['wwwuser']['-']['nproc'] = 2048
+# OR in your json file:
+#
+# "pam_limits": {
+#   "domains": {
+#     "wwwuser": {
+#       "-": {
+#         "nproc": 2048
+#       }
+#     }
+#   }
+# }
+<% end %>
 # Chef section ends here
 
 # End of file
