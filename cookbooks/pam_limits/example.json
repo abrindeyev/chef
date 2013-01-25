@@ -1,0 +1,11 @@
+{
+  'pam_limits': {
+    'domains': {
+      'macys': {
+        '-': {
+          'nproc': 1536
+        }
+      }
+    }
+  }
+}
